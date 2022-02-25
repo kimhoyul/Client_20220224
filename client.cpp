@@ -36,7 +36,7 @@ int main()
 	ServerAddr.sin_family = PF_INET; //IP V4
 	ServerAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-		//4. 연결 - 물리적인 연결을 Socket랑 연결
+	//4. 연결 - 물리적인 연결을 Socket랑 연결
 	if (connect(ServerSocket, (SOCKADDR*)&ServerAddr, sizeof(ServerAddr)) == SOCKET_ERROR)
 	{
 		cout << "connect Error : " << GetLastError() << endl;
@@ -47,7 +47,7 @@ int main()
 
 	char Buffer[] = "give me message.";
 	send(ServerSocket, Buffer, strlen(Buffer) + 1, 0);
-	
+
 	cout << "send message : " << Buffer << endl;
 
 	char Result[1024];
